@@ -1,11 +1,22 @@
 import { fastify } from 'fastify'
+import { pool } from './db.js';
 
 const server = fastify();
 
 server.get('/', () => {
-    return('Servidor rodando.')
+    return ('Servidor Rodando.')
 });
 
-server.listen({
-    port:3000,
+server.get('/pastel', async () => {
+    const result = await pool.query('SELECT * FROM pastel');
+    return {
+        message: 'retornou pasteu!',
+        result: result.rows, 
+    };
 });
+
+
+server.listen({
+    port: 3000,
+});
+

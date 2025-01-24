@@ -1,9 +1,11 @@
 import pg from 'pg';
 const {Pool} = pg;
 
-const pool = new Pool({
+
+
+export const pool = new Pool({
     user: 'neondb_owner',
-    password: 'npg_5yES1Nbklomrx',
+    password: 'npg_5yES1Nbklomr',
     host: 'ep-morning-glitter-a53srgnd-pooler.us-east-2.aws.neon.tech',
     port: '5432',
     database: 'neondb',
@@ -12,7 +14,9 @@ const pool = new Pool({
     },
 });
 
-const result = await pool.query('SELECT NOW()');
-const rows = result.rows[0].now;
-console.log(rows);
+//const result = await pool.query('SELECT NOW()');
+//const rows = result.rows[0].now;
+//console.log(rows);
+
+
 
